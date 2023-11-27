@@ -161,6 +161,14 @@ export default function Web<O>(
         (getProp(slides, 'spacing', 0, true) as number) / slider.size || 0
       const spacingPortion =
         perView === 'auto' ? spacing : spacing / (perView as number)
+        // 2 => 1
+        // 2.5 ==> 3
+        // 3 => 2
+        // 3.5 => 4
+        let totalSpacing = 0;
+        if(typeof perView === 'number') {
+          totalSpacing = spacing * (perView % 1 === 0 ? perView - 1 : Math.ceil(perView))
+        }
       const originOption = getProp(slides, 'origin', 'auto') as any
       let length = 0
       for (let i = 0; i < slidesCount; i++) {
@@ -170,7 +178,7 @@ export default function Web<O>(
             : 1 / (perView as number) - spacing + spacingPortion
         const origin =
           originOption === 'center'
-            ? 0.5 - size / 2
+            ? (typeof perView === 'number' && Math.floor(perView) % 2 === 0) ? (0.5 + spacing/2) : (0.5 - size / 2)
             : originOption === 'auto'
             ? 0
             : originOption
@@ -192,6 +200,8 @@ export default function Web<O>(
           return entry
         })
       }
+      console.log('config123', config, typeof perView === 'number' && Math.floor(perView) % 2 === 0);
+      
       slider.options.trackConfig = config
     }
 
