@@ -199,9 +199,7 @@ export default function Web<O>(
           entry.origin = 1 - space - (length > 1 ? 0 : 1 - length)
           return entry
         })
-      }
-      console.log('config123', config, typeof perView === 'number' && Math.floor(perView) % 2 === 0);
-      
+      }      
       slider.options.trackConfig = config
     }
 
