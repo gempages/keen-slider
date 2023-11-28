@@ -209,6 +209,7 @@ export default function Web<O>(
           return entry
         })
       }
+      console.log('config123', config);
       slider.options.trackConfig = config
     }
 
