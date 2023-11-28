@@ -289,6 +289,7 @@ export declare interface WebOptions<O> {
         number?: number | (() => number | null) | null
         perView?: 'auto' | number | (() => number | 'auto')
         spacing?: number | (() => number)
+        numberOfFullWidthShow?: number
       }
     | null
   vertical?: boolean

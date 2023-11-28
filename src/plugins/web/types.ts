@@ -18,7 +18,8 @@ export interface WebOptions<O> {
         origin?: 'center' | 'auto' | number
         number?: number | (() => number | null) | null
         perView?: 'auto' | number | (() => number | 'auto')
-        spacing?: number | (() => number)
+        spacing?: number | (() => number),
+        numberOfFullWidthShow?: number
       }
     | null
   vertical?: boolean
