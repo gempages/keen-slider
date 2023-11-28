@@ -209,7 +209,7 @@ export default function Web<O>(
           return entry
         })
       }
-      console.log();
+      console.log('carousel computed config', config);
       slider.options.trackConfig = config
     }
 
