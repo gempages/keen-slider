@@ -159,16 +159,13 @@ export default function Web<O>(
       const perView = getProp<number | 'auto'>(slides, 'perView', 1, true)
       const numberOfFullWidthShow =
         typeof perView === 'number'
-          ? getProp<number>(slides, 'numberOfFullWidthShow', perView, true)
+          ? getProp<number>(slides, 'numberOfFullWidthShow', undefined, true)
           : perView
+
       const spacing =
         (getProp(slides, 'spacing', 0, true) as number) / slider.size || 0
       const spacingPortion =
         perView === 'auto' ? spacing : spacing / (perView as number)
-      // 2 => 1
-      // 2.5 ==> 3
-      // 3 => 2
-      // 3.5 => 4
       let totalSpacing = 0
       let totalSpacingForFloorPerView = 0
       if (typeof numberOfFullWidthShow === 'number') {
@@ -185,7 +182,7 @@ export default function Web<O>(
       for (let i = 0; i < slidesCount; i++) {
         const size =
           perView === 'auto'
-            ? getElementSize(elems[i])
+            ? getElementSize(elems[i]) - spacing + spacingPortion
             : 1 / (perView as number) - spacing + spacingPortion
 
         const origin =
@@ -216,6 +213,7 @@ export default function Web<O>(
           return entry
         })
       }
+
       slider.options.trackConfig = config
     }
 
