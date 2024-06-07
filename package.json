@@ -1,5 +1,5 @@
 {
-  "name": "keen-slider",
+  "name": "@gem-sdk/keen-slider",
   "version": "6.8.8",
   "description": "The HTML touch slider carousel with the most native feeling you will get.",
   "main": "keen-slider.cjs.js",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/truongnc1/keen-slider.git"
+    "url": "git+https://github.com/gempages/keen-slider"
   },
   "keywords": [
     "slider",
